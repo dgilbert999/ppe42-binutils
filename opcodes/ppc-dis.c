@@ -55,14 +55,16 @@ struct ppc_mopt ppc_opts[] = {
     0 },
   { "405",     PPC_OPCODE_PPC | PPC_OPCODE_403 | PPC_OPCODE_405,
     0 },
+  { "ppe42",     PPC_OPCODE_PPE,
+    0 },
   { "440",     (PPC_OPCODE_PPC | PPC_OPCODE_BOOKE | PPC_OPCODE_440
-		| PPC_OPCODE_ISEL | PPC_OPCODE_RFMCI),
+                | PPC_OPCODE_ISEL | PPC_OPCODE_RFMCI),
     0 },
   { "464",     (PPC_OPCODE_PPC | PPC_OPCODE_BOOKE | PPC_OPCODE_440
-		| PPC_OPCODE_ISEL | PPC_OPCODE_RFMCI),
+                | PPC_OPCODE_ISEL | PPC_OPCODE_RFMCI),
     0 },
   { "476",     (PPC_OPCODE_PPC | PPC_OPCODE_ISEL | PPC_OPCODE_440
-		| PPC_OPCODE_476 | PPC_OPCODE_POWER4 | PPC_OPCODE_POWER5),
+                | PPC_OPCODE_476 | PPC_OPCODE_POWER4 | PPC_OPCODE_POWER5),
     0 },
   { "601",     PPC_OPCODE_PPC | PPC_OPCODE_601,
     0 },
@@ -408,6 +410,8 @@ disassemble_init_powerpc (struct disassemble_info *info)
     powerpc_init_dialect (info);
 }
 
+
+
 /* Print a big endian PowerPC instruction.  */
 
 int
@@ -697,6 +701,8 @@ print_insn_powerpc (bfd_vma memaddr,
 	  if ((operand->flags & PPC_OPERAND_GPR) != 0
 	      || ((operand->flags & PPC_OPERAND_GPR_0) != 0 && value != 0))
 	    (*info->fprintf_func) (info->stream, "r%ld", value);
+      else if ((operand->flags & PPC_OPERAND_GPVDR) != 0)
+        (*info->fprintf_func) (info->stream, "d%ld", value);
 	  else if ((operand->flags & PPC_OPERAND_FPR) != 0)
 	    (*info->fprintf_func) (info->stream, "f%ld", value);
 	  else if ((operand->flags & PPC_OPERAND_VR) != 0)

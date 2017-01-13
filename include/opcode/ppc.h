@@ -217,6 +217,11 @@ extern const int vle_num_opcodes;
   /* Opcode is supported by e200z4.  */
 #define PPC_OPCODE_E200Z4     0x80000000000ull
 
+/* Opcode is supported by PPE42 architecture.  */
+#define PPC_OPCODE_PPE        0x100000000000ull
+
+
+
 /* A macro to extract the major opcode from an instruction.  */
 #define PPC_OP(i) (((i) >> 26) & 0x3f)
 
@@ -411,10 +416,17 @@ extern const unsigned int num_powerpc_operands;
 /* This flag is only used with PPC_OPERAND_OPTIONAL.  The operand is
    only optional when generating 32-bit code.  */
 #define PPC_OPERAND_OPTIONAL32 (0x800000)
+
+/* This operand names a general purpose double register.  PPE42 specific.
+ * The disassembler uses this to print
+   register names with a leading 'd'.  */
+#define PPC_OPERAND_GPVDR (0x1000000)
+
 
 /* The POWER and PowerPC assemblers use a few macros.  We keep them
    with the operands table for simplicity.  The macro table is an
    array of struct powerpc_macro.  */
+
 
 struct powerpc_macro
 {

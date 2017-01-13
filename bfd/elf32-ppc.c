@@ -1399,6 +1399,21 @@ static reloc_howto_type ppc_elf_howto_raw[] = {
 	 0xffff,		/* dst_mask */
 	 FALSE),		/* pcrel_offset */
 
+  /* A relative 12 bit branch. */
+  HOWTO (R_PPC_PPE_REL10,       /* type */
+         1,                     /* rightshift */
+         2,                     /* size (0 = byte, 1 = short, 2 = long */
+         10,                    /* bitsize */
+         TRUE,                  /* pc_relative */
+         0,                     /* bitpos */
+         complain_overflow_signed, /* complain_on_overflow */
+         bfd_elf_generic_reloc, /* special_function */
+         "R_PPC_PPE_REL10",     /* name */
+         FALSE,                 /* parial_inplace */
+         0,                     /* src_mask */
+         0x7fe,                 /* dst_mask */
+         TRUE),                 /* pcrel_offset */
+
   /* A relative 8 bit branch.  */
   HOWTO (R_PPC_VLE_REL8,	/* type */
 	 1,			/* rightshift */
@@ -1969,6 +1984,7 @@ ppc_elf_reloc_type_lookup (bfd *abfd ATTRIBUTE_UNUSED,
     case BFD_RELOC_PPC_EMB_RELST_HA:	r = R_PPC_EMB_RELST_HA;		break;
     case BFD_RELOC_PPC_EMB_BIT_FLD:	r = R_PPC_EMB_BIT_FLD;		break;
     case BFD_RELOC_PPC_EMB_RELSDA:	r = R_PPC_EMB_RELSDA;		break;
+    case BFD_RELOC_PPC_PPE_REL10:	r = R_PPC_PPE_REL10;		break;
     case BFD_RELOC_PPC_VLE_REL8:	r = R_PPC_VLE_REL8;		break;
     case BFD_RELOC_PPC_VLE_REL15:	r = R_PPC_VLE_REL15;		break;
     case BFD_RELOC_PPC_VLE_REL24:	r = R_PPC_VLE_REL24;		break;
@@ -4222,6 +4238,7 @@ ppc_elf_check_relocs (bfd *abfd,
 	    }
 	  break;
 
+    case R_PPC_PPE_REL10:
 	case R_PPC_VLE_REL8:
 	case R_PPC_VLE_REL15:
 	case R_PPC_VLE_REL24:
@@ -8820,6 +8837,7 @@ ppc_elf_relocate_section (bfd *output_bfd,
 	case R_PPC_UADDR16:
 	  goto dodyn;
 
+    case R_PPC_PPE_REL10:
 	case R_PPC_VLE_REL8:
 	case R_PPC_VLE_REL15:
 	case R_PPC_VLE_REL24:
