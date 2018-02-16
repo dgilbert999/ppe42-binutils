@@ -1726,6 +1726,7 @@ read_and_display_attr_value (unsigned long attribute,
 	{
 	case DW_AT_frame_base:
 	  have_frame_base = 1;
+	  /* Fall through. */
 	case DW_AT_location:
 	case DW_AT_string_length:
 	case DW_AT_return_addr:
@@ -1987,6 +1988,7 @@ read_and_display_attr_value (unsigned long attribute,
 
     case DW_AT_frame_base:
       have_frame_base = 1;
+      /* Fall through. */
     case DW_AT_location:
     case DW_AT_string_length:
     case DW_AT_return_addr:
@@ -6738,6 +6740,7 @@ dwarf_select_sections_by_letters (const char *letters)
 
       case 'F':
 	do_debug_frames_interp = 1;
+	/* Fall through. */
       case 'f':
 	do_debug_frames = 1;
 	break;

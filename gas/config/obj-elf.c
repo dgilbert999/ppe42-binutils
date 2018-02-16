@@ -804,6 +804,7 @@ obj_elf_parse_section_letters (char *str, size_t len, bfd_boolean *is_clone)
 		}
 	      break;
 	    }
+	  /* Fall through. */
 	default:
 	  {
 	    char *bad_msg = _("unrecognized .section attribute: want a,e,w,x,M,S,G,T");

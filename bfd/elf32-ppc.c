@@ -5070,6 +5070,7 @@ ppc_elf_gc_sweep_hook (bfd *abfd,
 	case R_PPC_UADDR16:
 	  if (info->shared)
 	    break;
+	  /* Fall through.  */
 
 	case R_PPC_PLT32:
 	case R_PPC_PLTREL24:

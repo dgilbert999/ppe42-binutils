@@ -5413,6 +5413,7 @@ ppc64_elf_check_relocs (bfd *abfd, struct bfd_link_info *info,
 	case R_PPC64_TOC16_DS:
 	  htab->do_multi_toc = 1;
 	  ppc64_elf_tdata (abfd)->has_small_toc_reloc = 1;
+	  /* Fall through. */
 	case R_PPC64_TOC16_LO:
 	case R_PPC64_TOC16_HI:
 	case R_PPC64_TOC16_HA:

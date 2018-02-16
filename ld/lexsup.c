@@ -661,6 +661,7 @@ parse_args (unsigned argc, char **argv)
 
 	default:
 	  einfo (_("%P%F: use the --help option for usage information\n"));
+	  break;
 
 	case 1:			/* File name.  */
 	  lang_add_input_file (optarg, lang_input_file_is_file_enum, NULL);
@@ -1209,7 +1210,7 @@ parse_args (unsigned argc, char **argv)
 	  break;
 	case OPTION_TASK_LINK:
 	  link_info.task_link = TRUE;
-	  /* Fall through - do an implied -r option.  */
+	  /* Fall through.  */
 	case OPTION_UR:
 	  link_info.relocatable = TRUE;
 	  config.build_constructors = TRUE;
@@ -1505,6 +1506,7 @@ parse_args (unsigned argc, char **argv)
       break;
     case dynamic_list_data:
       link_info.dynamic_data = TRUE;
+      /* Fall through. */
     case dynamic_list:
       link_info.dynamic = TRUE;
       break;

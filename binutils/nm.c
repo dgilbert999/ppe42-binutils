@@ -220,7 +220,7 @@ static struct option long_options[] =
 
 /* Some error-reporting functions.  */
 
-static void
+ATTRIBUTE_NORETURN static void
 usage (FILE *stream, int status)
 {
   fprintf (stream, _("Usage: %s [option(s)] [file(s)]\n"), program_name);

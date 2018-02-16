@@ -88,7 +88,7 @@ print_demangler_list (FILE *stream)
   fprintf (stream, "}");
 }
 
-static void
+ATTRIBUTE_NORETURN static void
 usage (FILE *stream, int status)
 {
   fprintf (stream, "\

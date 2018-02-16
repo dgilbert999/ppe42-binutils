@@ -122,7 +122,8 @@ quote_string_for_make (FILE *file, char *src)
 	  if (file)
 	    putc (c, file);
 	  i++;
-	  /* Fall through.  This can mishandle things like "$(" but
+	  /* Fall through. */
+	  /*  This can mishandle things like "$(" but
 	     there's no easy fix.  */
 	default:
 	ordinary_char:

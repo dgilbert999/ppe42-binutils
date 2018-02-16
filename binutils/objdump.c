@@ -3662,6 +3662,7 @@ main (int argc, char **argv)
 	case 'H':
 	  usage (stdout, 0);
 	  seenflag = TRUE;
+	  /* Fall through. */
 	case 'v':
 	case 'V':
 	  show_version = TRUE;

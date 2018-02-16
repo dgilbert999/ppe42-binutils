@@ -130,7 +130,7 @@ static void strings_a_section (bfd *, asection *, void *);
 static bfd_boolean strings_object_file (const char *);
 static bfd_boolean strings_file (char *file);
 static void print_strings (const char *, FILE *, file_ptr, int, int, char *);
-static void usage (FILE *, int);
+static void usage (FILE *, int) ATTRIBUTE_NORETURN;
 static long get_char (FILE *, file_ptr *, int *, char **);
 
 int main (int, char **);
