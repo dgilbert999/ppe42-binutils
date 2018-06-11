@@ -5148,6 +5148,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 
 {"lharx",	X(31,116),	XEH_MASK, POWER8|E6500, 0,		{RT, RA0, RB, EH}},
 
+{"lstk",	X(31,118),	X_MASK,	     PPE, PPCVLE,{RT, RA}},
 {"clf",		X(31,118),	XTO_MASK,    POWER,	0,		{RA, RB}},
 
 {"lbzux",	X(31,119),	X_MASK,	     COM,	0,		{RT, RAL, RB}},
@@ -6622,6 +6623,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"psq_l",	OP(56),		OP_MASK,     PPCPS,	PPCVLE,		{FRT,PSD,RA,PSW,PSQ}},
 {"lfq",		OP(56),		OP_MASK,     POWER2,	PPCVLE,		{FRT, D, RA0}},
 
+{"ststku",	DSO(57,1),		DS_MASK,     PPE,	PPCVLE,	{RS, DS, RAS }},
 {"lxsd",	DSO(57,2),	DS_MASK,     PPCVSX3,	PPCVLE,		{VD, DS, RA0}},
 {"lxssp",	DSO(57,3),	DS_MASK,     PPCVSX3,	PPCVLE,		{VD, DS, RA0}},
 {"lfdp",	OP(57),		OP_MASK,     POWER6,	POWER7|PPCVLE,	{FRTp, DS, RA0}},
@@ -6956,6 +6958,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"std",		DSO(62,0),	DS_MASK,     PPC64,	PPCVLE,		{RS, DS, RA0}},
 {"stdu",	DSO(62,1),	DS_MASK,     PPC64,	PPCVLE,		{RS, DS, RAS}},
 {"stq",		DSO(62,2),	DS_MASK,     POWER4,	PPC476|PPCVLE,	{RSQ, DS, RA0}},
+{"stcxtu",	DSO(62,3),	DS_MASK,     PPE,	PPCVLE,	{RS, DS, RAS }},
 
 {"fcmpu",	X(63,0),	XBF_MASK,    COM,	PPCEFS|PPCVLE,	{BF, FRA, FRB}},
 
